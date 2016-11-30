@@ -5,8 +5,8 @@ from solution import *
 #Select what to test
 test_manhattan = True
 test_alternate_heuristic = False
-test_weighted_astar = True
-test_fval_function = True
+test_weighted_astar = False
+test_fval_function = False
 
 if test_manhattan:
     ##############################################################
