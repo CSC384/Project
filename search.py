@@ -353,7 +353,7 @@ class SearchEngine:
             self.total_search_time = os.times()[0] - self.total_search_time            
             print("Search Failed! No solution found.")
             print("Nodes expanded = {}, states generated = {}, states cycle check pruned = {}, states cost bound pruned = {}".format(sNode.n, StateSpace.n, self.cycle_check_pruned, self.cost_bound_pruned))
-            return False
+            return goal_node.state
 
     def searchOpen(self, OPEN, goal_fn, heur_fn, timebound, fval_function, weight, costbound):
         '''Open has some nodes on it, now search from that state of OPEN'''
@@ -382,7 +382,7 @@ class SearchEngine:
               if (os.times()[0] - self.total_search_time) > timebound:                
                 #exceeded time bound, must terminate search
                 print("ERROR: Search has exceeeded the time bound provided.")
-                return False
+                return node
 
              #All states reached by a search node on OPEN have already
              #been hashed into the self.cc_dictionary. However,
@@ -466,5 +466,5 @@ class SearchEngine:
                     self.cc_dictionary[hash_state] = succ.gval
 
         #end of while--OPEN is empty and no solution
-        return False
+        return node
             

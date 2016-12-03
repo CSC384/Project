@@ -122,20 +122,35 @@ def Lightsout_goal_state(state):
             return False
   return True        
 '''
-Sokoban Problem Set, for testing
+Lights Out Problem Set, for testing
 '''
 PROBLEMS = (
-    LightsOutState("START", 0, None, 5, 5,
-                 [(2, 1),(2, 3)] #lights
+LightsOutState("START", 0, None, 3, 3,
+                         [(1, 0),(1, 1),(1,2),(2,1)] #lights
+                         ),
+LightsOutState("START", 0, None, 3, 3,
+                         [(1, 0),(1, 1),(1,2)] #lights
+                         ),
+LightsOutState("START", 0, None, 3, 3,
+                         [(1, 0),(1,2),(2,1)] #lights
+                         ),
+LightsOutState("START", 0, None, 3, 3,
+                         [(1, 0),(1, 1)] #lights
+                         ),
+LightsOutState("START", 0, None, 3, 3,
+                         [(1, 0)] #lights
+                         ),
+    LightsOutState("START", 0, None, 3, 4,
+                 [(0, 2),(1, 1), (2, 2)] #lights
                  ),
     
-    LightsOutState("START", 0, None, 5, 5,
+    LightsOutState("START", 0, None, 3, 4,
                      [(0, 0),(0, 1)] #lights
                      ),
-    LightsOutState("START", 0, None, 3, 3,
-                         [(1, 0),(1, 1),(1,2),(2,1)] #lights
-                         ),    
-    )
+LightsOutState("START", 0, None, 3, 4,
+                 [(0, 0), (0, 1), (2, 1), (2, 2)] #lights
+                 ))
+
 
 
 

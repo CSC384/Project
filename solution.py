@@ -13,52 +13,41 @@ from LightsOut import LightsOutState,PROBLEMS, Lightsout_goal_state#for Sokoban 
 #SOKOBAN HEURISTICS
 def heur_displaced(state):
   '''trivial admissible sokoban heuristic'''
-  '''INPUT: a sokoban state'''
+  '''INPUT: a lights out state'''
   '''OUTPUT: a numeric value that serves as an estimate of the distance of the state to the goal.'''       
  
   return len(state.lights)
 
-def heur_manhattan_distance(state):
-#IMPLEMENT
-    '''admissible sokoban heuristic: manhattan distance'''
-    '''INPUT: a sokoban state'''
-    '''OUTPUT: a numeric value that serves as an estimate of the distance of the state to the goal.'''      
-    #We want an admissible heuristic, which is an optimistic heuristic. 
-    #It must always underestimate the cost to get from the current state to the goal.
-    #The sum Manhattan distance of the boxes to their closest storage spaces is such a heuristic.  
-    #When calculating distances, assume there are no obstacles on the grid and that several boxes can fit in one storage bin.
-    #You should implement this heuristic function exactly, even if it is tempting to improve it.
-    #Your function should return a numeric value; this is the estimate of the distance to the goal.
-    
-    return 0
+
 
 def heur_alternate(state):
 #IMPLEMENT
-    '''a better sokoban heuristic'''
-    '''INPUT: a sokoban state'''
-    '''OUTPUT: a numeric value that serves as an estimate of the distance of the state to the goal.'''        
-    #heur_min_moves has flaws.   
-    #Write a heuristic function that improves upon heur_manhattan_distance to estimate distance between the current state and the goal.
-    #Your function should return a numeric value for the estimate of the distance to the goal.
-    return 0
+    '''a better lights out heuristic'''
+    '''INPUT: a lights out state'''
+    '''OUTPUT: a numeric value that serves as an estimate of the distance of the state to the goal.'''
+    total = 0
+    for light in state.lights:
+        left = (light[0] - 1, light[1])
+        right = (light[0] + 1, light[1])
+        up = (light[0], light[1] - 1)
+        down = (light[0], light[1] + 1)
+        if(left in state.lights):
+            total += 1
+
+        if (right in state.lights):
+            total += 1
+
+        if (up in state.lights):
+            total += 1
+
+        if (down in state.lights):
+            total += 1
+    if(len(state.lights) == 0):
+        return 0
+    return total
 
 def fval_function(sN, weight):
-#IMPLEMENT
-    """
-    Provide a custom formula for f-value computation for Anytime Weighted A star.
-    Returns the fval of the state contained in the sNode.
 
-    @param sNode sN: A search node (containing a SokobanState)
-    @param float weight: Weight given by Anytime Weighted A star
-    @rtype: float
-    """
-  
-    #Many searches will explore nodes (or states) that are ordered by their f-value.
-    #For UCS, the fvalue is the same as the gval of the state. For best-first search, the fvalue is the hval of the state.
-    #You can use this function to create an alternate f-value for states; this must be a function of the state and the weight.
-    #The function must return a numeric f-value.
-    #The value will determine your state's position on the Frontier list during a 'custom' search.
-    #You must initialize your search engine object as a 'custom' search engine if you supply a custom fval function.
     return 0
 
 def weighted_astar(initail_state, timebound = 10):
@@ -70,7 +59,7 @@ def weighted_astar(initail_state, timebound = 10):
 
 if __name__ == "__main__":
   #TEST CODE for astar+heur_displaced
-  solved = 0; unsolved = []; counter = 0; percent = 0; timebound = 2; #2 second time limit for each problem
+  solved = 0; unsolved = []; counter = 0; percent = 0; timebound = 5; #2 second time limit for each problem
   print("*************************************")  
   print("Running A-star")     
 
@@ -88,7 +77,8 @@ if __name__ == "__main__":
       final.print_path()
       solved += 1
     else:
-      unsolved.append(i)    
+      final.print_path()
+      unsolved.append(i)
     counter += 1
 
   if counter > 0:  
