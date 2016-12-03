@@ -149,6 +149,15 @@ LightsOutState("START", 0, None, 3, 3,
                      ),
 LightsOutState("START", 0, None, 3, 4,
                  [(0, 0), (0, 1), (2, 1), (2, 2)] #lights
+                 ),
+LightsOutState("START", 0, None, 3, 4,
+                 [(0, 0), (0, 1)] #lights
+                 ),
+LightsOutState("START", 0, None, 3, 4,
+                 [(0, 0)] #lights
+                 ),
+LightsOutState("START", 0, None, 6, 6,
+                 [(0, 0), (1, 0), (2, 0), (3,0),(3, 2), (5, 2), (2, 4)] #lights
                  ))
 
 
