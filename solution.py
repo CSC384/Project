@@ -1,18 +1,11 @@
-#Look for #IMPLEMENT tags in this file. These tags indicate what has
-#to be implemented to complete the Sokoban warehouse domain.
-
-#   You may add only standard python imports---i.e., ones that are automatically
-#   available on TEACH.CS
-#   You may not remove any imports.
-#   You may not import or otherwise source any of your own files
 
 #import os for time functions
 from search import * #for search engines
 from LightsOut import LightsOutState,PROBLEMS, Lightsout_goal_state#for Sokoban specific classes and problems
 
-#SOKOBAN HEURISTICS
+#LIGHTSOUT HEURISTICS
 def heur_displaced(state):
-  '''trivial admissible sokoban heuristic'''
+  '''trivial admissible lightsout heuristic'''
   '''INPUT: a lights out state'''
   '''OUTPUT: a numeric value that serves as an estimate of the distance of the state to the goal.'''       
  
@@ -78,8 +71,8 @@ def fval_function(sN, weight):
 
 def weighted_astar(initail_state, timebound = 7):
 #IMPLEMENT
-    '''Provides an implementation of weighted a-star, as described in the HW1 handout'''
-    '''INPUT: a sokoban state that represents the start state and a timebound (number of seconds)'''
+    '''Provides an implementation of weighted a-star'''
+    '''INPUT: a lightsout state that represents the start state and a timebound (number of seconds)'''
     '''OUTPUT: A goal state (if a goal is found), else False'''
 
 
@@ -126,7 +119,7 @@ if __name__ == "__main__":
     s0 = PROBLEMS[i] #Problems will get harder as i gets bigger
 
     se = SearchEngine('astar', 'full')
-    final = se.search(s0, Lightsout_goal_state, heur_alternate, timebound)
+    final = se.search(s0, Lightsout_goal_state, heur_displaced, timebound)
 
     if final:
       final.print_path()
