@@ -68,20 +68,48 @@ def heur_alternate_2(state):
 
         if (down in state.lights):
             total += 1
-        total += 1
     if(len(state.lights) == 0):
         return 0
     return total
 
 def fval_function(sN, weight):
 
-    return 0
+    return (1 - weight) * sN.gval + weight * sN.hval
 
-def weighted_astar(initail_state, timebound = 10):
+def weighted_astar(initail_state, timebound = 7):
 #IMPLEMENT
     '''Provides an implementation of weighted a-star, as described in the HW1 handout'''
     '''INPUT: a sokoban state that represents the start state and a timebound (number of seconds)'''
-    '''OUTPUT: A goal state (if a goal is found), else False''' 
+    '''OUTPUT: A goal state (if a goal is found), else False'''
+
+
+    se = SearchEngine('custom', 'full')
+    weight = 1
+    const = 0.15
+    passed = False
+    search_begin_time = os.times()[0]
+    while weight != 0:
+
+        if timebound:  # timebound check
+            if (os.times()[0] - search_begin_time) > timebound:
+                # exceeded time bound, must terminate search
+                print("ERROR: Search has exceeeded the time bound provided.")
+                return passed
+        current_search_time_begin = os.times()[0]
+        result = se.search(initState=initail_state, heur_fn=heur_displaced, timebound=timebound, goal_fn=Lightsout_goal_state,
+                       fval_function=fval_function, weight=weight, costbound=10000000000)
+        current_search_time_end = os.times()[0]
+        # get the remaining time for next round search
+        timebound -= current_search_time_end - current_search_time_begin
+        if result and not passed:
+            passed = result
+        elif result and result.gval <= passed.gval:
+            passed = result
+        weight -= const
+
+        if os.times()[0] - search_begin_time <= timebound:
+            return passed
+
     return False
 
 if __name__ == "__main__":
@@ -104,7 +132,6 @@ if __name__ == "__main__":
       final.print_path()
       solved += 1
     else:
-      final.print_path()
       unsolved.append(i)
     counter += 1
 

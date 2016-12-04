@@ -136,92 +136,92 @@ PROBLEMS = (
         LightsOutState("START", 0, None, 3, 3,
                                  [(0, 0),(1, 1)] #lights
                                  ),      
-LightsOutState("START", 0, None, 3, 3,
+        LightsOutState("START", 0, None, 3, 3,
                          [(1, 0),(1, 1),(1,2),(2,1)] #lights
                          ),
-LightsOutState("START", 0, None, 3, 3,
+        LightsOutState("START", 0, None, 3, 3,
                          [(1, 0),(1, 1),(1,2)] #lights
                          ),
-LightsOutState("START", 0, None, 3, 3,
+        LightsOutState("START", 0, None, 3, 3,
                          [(1, 0),(1,2),(2,1)] #lights
                          ),
-LightsOutState("START", 0, None, 3, 3,
+        LightsOutState("START", 0, None, 3, 3,
                          [(1, 0),(1, 1)] #lights
                          ),
-LightsOutState("START", 0, None, 3, 3,
+        LightsOutState("START", 0, None, 3, 3,
                          [(1, 0)] #lights
                          ),
-    LightsOutState("START", 0, None, 3, 4,
+        LightsOutState("START", 0, None, 3, 4,
                  [(0, 2),(1, 1), (2, 2)] #lights
                  ),
     
-    LightsOutState("START", 0, None, 3, 4,
+        LightsOutState("START", 0, None, 3, 4,
                      [(0, 0),(0, 1)] #lights
                      ),
-LightsOutState("START", 0, None, 3, 4,
+        LightsOutState("START", 0, None, 3, 4,
                  [(0, 0), (0, 1), (2, 1), (2, 2)] #lights
                  ),
 
-LightsOutState("START", 0, None, 4, 4,
-                                        [(0, 0),(1, 1),(2,2)] #lights
+        LightsOutState("START", 0, None, 4, 4,
+                                        [(1, 1),(2,2), (1, 3), (2, 3)] #lights
                                         ),     
-    LightsOutState("START", 0, None, 4, 4,
-                                        [(0, 0),(1, 1),(1,3)] #lights
+        LightsOutState("START", 0, None, 4, 4,
+                                        [(0, 1),(3, 0),(3,1), (3, 3)] #lights
                                         ),     
-    LightsOutState("START", 0, None, 4, 4,
-                                        [(0, 0),(1, 1),(1,3),(2,2)] #lights
+        LightsOutState("START", 0, None, 4, 4,
+                                        [(2, 1),(3, 1),(0,3),(1,3), (3, 3)] #lights
                                         ),    
-    LightsOutState("START", 0, None, 4, 4,
+        LightsOutState("START", 0, None, 4, 4,
                                         [(0, 0),(0, 3),(3,0),(3,3)] #lights
                                         ),     
-    LightsOutState("START", 0, None, 4, 4,
+        LightsOutState("START", 0, None, 4, 4,
                                         [(0,0),(1,0),(0,1)] #lights
                                         ), 
     
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(0,0),(1,0),(0,1)] #lights
                                         ), 
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(4,0),(4,1),(3,0)] #lights
                                         ),
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(0,0),(1,1),(3,0)] #lights
                                         ),    
     
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(0,0),(1,1),(2,2),(3,0)] #lights
                                         ), 
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(0,0),(1,1),(2,2),(3,0),(3,3)] #lights
                                         ), 
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(0,0),(1,1),(2,2),(3,0),(4,3)] #lights
                                         ),  
-    LightsOutState("START", 0, None, 4, 5,
+        LightsOutState("START", 0, None, 4, 5,
                                         [(1,1),(1,2),(1,3)] #lights
                                         ),
                                         
-    LightsOutState("START", 0, None, 5, 5,
+        LightsOutState("START", 0, None, 5, 5,
                                         [(0,0),(0,4),(4,0),(4,4)] #lights
                                         ),
-    LightsOutState("START", 0, None, 5, 5,
+        LightsOutState("START", 0, None, 5, 5,
                                         [(1,1),(1,2),(2,0),(3,4)] #lights
                                         ),    
-    LightsOutState("START", 0, None, 5, 5,
-                                        [(0,0),(0,1),(1,0),(2,0),(2,1),(3,0)] #lights
+        LightsOutState("START", 0, None, 5, 5,
+                                        [(0,0),(0,1),(2,0),(2,1),(3,0)] #lights
                                         ),
-    LightsOutState("START", 0, None, 5, 5,
+        LightsOutState("START", 0, None, 5, 5,
                                         [(2,0),(2,1),(2,2),(2,3),(2,4)] #lights
                                         ),
-    LightsOutState("START", 0, None, 10, 10,
-                                           [(0,0),(2,3),(3,2),(7,6),(8,6),(9,1)] #lights
-                                           ),  
-    LightsOutState("START", 0, None, 10, 5,
-                                           [(0,0),(0,4),(3,6),(3,7),(3,8),(4,5),(4,9)] #lights
-                                           )   
+        LightsOutState("START", 0, None, 7, 7,
+                                           [(0,0),(1,1),(2,2),(1,3),(0,4)] #lights
+                                           ),
+        LightsOutState("START", 0, None, 7, 7,
+                                            [(0, 0),(1, 0), (2, 0), (1, 1), (2, 2), (1, 3), (0, 4)]  # lights
+                                            )
     
 
-)
+    )
 
 
 
