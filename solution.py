@@ -65,6 +65,34 @@ def heur_alternate_2(state):
         return 0
     return total
 
+
+def heur_alternate_3(state):
+    penalty = 0
+    if len(state.toggled) != len(set(state.toggled)):
+        penalty = 10
+
+    total = 0
+    for light in state.lights:
+        left = (light[0] - 1, light[1])
+        right = (light[0] + 1, light[1])
+        up = (light[0], light[1] - 1)
+        down = (light[0], light[1] + 1)
+        if (left in state.lights):
+            total += 1
+
+        if (right in state.lights):
+            total += 1
+
+        if (up in state.lights):
+            total += 1
+
+        if (down in state.lights):
+            total += 1
+    if (len(state.lights) == 0):
+        return 0
+    return total + penalty
+
+
 def fval_function(sN, weight):
 
     return (1 - weight) * sN.gval + weight * sN.hval
